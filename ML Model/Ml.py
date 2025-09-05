@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error
 import joblib
 
 # Step 1: Load Dataset
-data = pd.read_csv(r"C:\Users\apoor\OneDrive\Desktop\Sihs\ML Model\sample_data.csv")
+data = pd.read_csv(r"C:\Users\HP-PC\OneDrive\Desktop\Water_Footprint-main\ML Model\sample_data.csv")
 
 # Step 2: Explore and preprocess the data
 print("Initial Data:")
@@ -57,7 +57,7 @@ joblib.dump(model, 'water_prediction_model.pkl')
 # Step 6: Example prediction
 # Load new data (replace with your actual file path)
 try:
-    new_data = pd.read_csv(r"C:\Users\apoor\OneDrive\Desktop\Sihs\ML Model\new_data.csv")
+    new_data = pd.read_csv(r"C:\Users\HP-PC\OneDrive\Desktop\Water_Footprint-main\ML Model\sample_data.csv")
 except FileNotFoundError:
     print("new_data.csv not found. Creating example data for testing...")
     new_data = pd.DataFrame({
