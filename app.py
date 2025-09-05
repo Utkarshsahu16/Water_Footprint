@@ -5,7 +5,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load your trained ML model (adjust path if needed)
-model = joblib.load("ML Model/water_model.pkl")
+model = joblib.load("ml_model/water_model.pkl")
 
 @app.route("/")
 def index():

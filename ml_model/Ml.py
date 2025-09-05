@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error
 import joblib
 
 # Step 1: Load Dataset
-data = pd.read_csv(r"C:\Users\HP-PC\OneDrive\Desktop\Water_Footprint-main\ML Model\sample_data.csv")
+data = pd.read_csv(r"C:\Users\HP-PC\OneDrive\Desktop\Water_Footprint-main\ml_model\sample_data.csv")
 
 # Step 2: Explore and preprocess the data
 print("Initial Data:")
@@ -52,12 +52,12 @@ rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 print(f'RMSE: {rmse}')
 
 # Step 5: Save the model
-joblib.dump(model, 'water_prediction_model.pkl')
+joblib.dump(model, 'ml_model/water_model.pkl')
 
 # Step 6: Example prediction
 # Load new data (replace with your actual file path)
 try:
-    new_data = pd.read_csv(r"C:\Users\HP-PC\OneDrive\Desktop\Water_Footprint-main\ML Model\sample_data.csv")
+    new_data = pd.read_csv(r"C:\Users\HP-PC\OneDrive\Desktop\Water_Footprint-main\ml_model\sample_data.csv")
 except FileNotFoundError:
     print("new_data.csv not found. Creating example data for testing...")
     new_data = pd.DataFrame({
@@ -75,5 +75,6 @@ new_data = pd.get_dummies(new_data, columns=['crop_type'], drop_first=True)
 new_data = new_data.reindex(columns=feature_columns, fill_value=0)
 
 # Predict water usage
+model = joblib.load("ml_model/water_model.pkl")
 predicted_water = model.predict(new_data)
 print(f'Predicted Water Usage: {predicted_water} liters')

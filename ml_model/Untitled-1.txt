@@ -1,0 +1,1 @@
+data = pd.read_csv("ml_model/sample_data.csv")
